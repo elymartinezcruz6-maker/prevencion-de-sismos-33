@@ -1,0 +1,715 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prevención Sismos - Aprende a Protegerte</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary: #3498db;
+            --secondary: #2ecc71;
+            --accent: #e74c3c;
+            --light: #ecf0f1;
+            --dark: #2c3e50;
+            --text: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background-color: #f9f9f9;
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        header {
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            color: white;
+            padding: 1rem;
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .logo i {
+            margin-right: 10px;
+        }
+        
+        nav {
+            background-color: var(--dark);
+            padding: 0.5rem;
+        }
+        
+        nav ul {
+            display: flex;
+            justify-content: center;
+            list-style: none;
+        }
+        
+        nav li {
+            margin: 0 1rem;
+        }
+        
+        nav a {
+            color: white;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        nav a:hover {
+            background-color: rgba(255,255,255,0.1);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .hero {
+            background: url('https://images.unsplash.com/photo-1596005554382-19283a118a56?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+            background-color: rgba(0, 0, 0, 0.6);
+            background-blend-mode: overlay;
+            border-radius: 8px;
+            padding: 3rem 2rem;
+            margin-bottom: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            color: white;
+        }
+        
+        .hero h1 {
+            color: white;
+            margin-bottom: 1rem;
+            font-size: 2.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        
+        .content-grid {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 2rem;
+        }
+        
+        .main-content {
+            background-color: white;
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .sidebar {
+            background-color: white;
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .article {
+            margin-bottom: 2rem;
+        }
+        
+        .article h2 {
+            color: var(--primary);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .article h2 i {
+            margin-right: 10px;
+        }
+        
+        .article img {
+            width: 100%;
+            border-radius: 8px;
+            margin: 1rem 0;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+        
+        .article ul {
+            padding-left: 1.5rem;
+            margin: 1rem 0;
+        }
+        
+        .article li {
+            margin-bottom: 0.5rem;
+        }
+        
+        .quiz {
+            background-color: var(--light);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+        }
+        
+        .quiz h3 {
+            color: var(--accent);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .quiz h3 i {
+            margin-right: 10px;
+        }
+        
+        .quiz-options {
+            margin: 1rem 0;
+        }
+        
+        .quiz-option {
+            margin-bottom: 0.5rem;
+            padding: 0.8rem;
+            background: white;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .quiz-option:hover {
+            background-color: #e8f4fc;
+        }
+        
+        .btn {
+            background-color: var(--primary);
+            color: white;
+            border: none;
+            padding: 0.7rem 1.5rem;
+            border-radius: 4px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: background-color 0.3s;
+            display: inline-flex;
+            align-items: center;
+        }
+        
+        .btn i {
+            margin-right: 8px;
+        }
+        
+        .btn:hover {
+            background-color: #2980b9;
+        }
+        
+        .game-container {
+            background: linear-gradient(to bottom, #f9f9f9, #e9e9e9);
+            padding: 1.5rem;
+            border-radius: 8px;
+            margin: 1.5rem 0;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+        
+        .game-container h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .game-container h3 i {
+            margin-right: 10px;
+        }
+        
+        #memory-game {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 10px;
+            margin: 1rem auto;
+            max-width: 400px;
+        }
+        
+        .memory-card {
+            height: 80px;
+            background: linear-gradient(135deg, var(--primary), #5dade2);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: transform 0.3s, background 0.3s;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+        }
+        
+        .memory-card.flipped {
+            transform: rotateY(180deg);
+            background: white;
+            color: var(--dark);
+            box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+        
+        .memory-card.matched {
+            visibility: hidden;
+        }
+        
+        .sidebar-widget {
+            margin-bottom: 2rem;
+        }
+        
+        .sidebar-widget h3 {
+            color: var(--dark);
+            margin-bottom: 1rem;
+            border-bottom: 2px solid var(--light);
+            padding-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-widget h3 i {
+            margin-right: 10px;
+        }
+        
+        .sidebar-widget ul {
+            list-style: none;
+        }
+        
+        .sidebar-widget li {
+            margin-bottom: 0.8rem;
+            padding: 0.5rem;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .sidebar-widget li:hover {
+            background-color: var(--light);
+        }
+        
+        .sidebar-widget a {
+            color: var(--primary);
+            text-decoration: none;
+            display: flex;
+            align-items: center;
+        }
+        
+        .sidebar-widget a i {
+            margin-right: 8px;
+        }
+        
+        .sidebar-widget a:hover {
+            text-decoration: underline;
+        }
+        
+        .progress-container {
+            background-color: var(--light);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin: 1.5rem 0;
+            text-align: center;
+        }
+        
+        .progress-bar {
+            height: 20px;
+            background-color: #ddd;
+            border-radius: 10px;
+            margin: 1rem 0;
+            overflow: hidden;
+        }
+        
+        .progress {
+            height: 100%;
+            background: linear-gradient(to right, var(--secondary), #27ae60);
+            width: 0%;
+            transition: width 0.5s;
+        }
+        
+        footer {
+            background-color: var(--dark);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .social-icons {
+            margin: 1rem 0;
+        }
+        
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+            margin: 0 0.5rem;
+            transition: color 0.3s;
+        }
+        
+        .social-icons a:hover {
+            color: var(--primary);
+        }
+        
+        @media (max-width: 768px) {
+            .content-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            nav ul {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            nav li {
+                margin: 0.3rem 0;
+            }
+            
+            .hero {
+                padding: 2rem 1rem;
+            }
+            
+            .hero h1 {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="logo"><i class="fas fa-shield-alt"></i>Prevención Sísmicos</div>
+        <p>Aprende a disminuir tu vulnerabilidad ante terremotos</p>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="#articulos"><i class="fas fa-book"></i> Artículos</a></li>
+            <li><a href="#juegos"><i class="fas fa-gamepad"></i> Mini Juegos</a></li>
+            <li><a href="#evaluacion"><i class="fas fa-question-circle"></i> Evaluación</a></li>
+            <li><a href="#recursos"><i class="fas fa-download"></i> Recursos</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="hero">
+            <h1>¿Cómo disminuir la vulnerabilidad ante sismos?</h1>
+            <p>Explora nuestros recursos educativos para aprender a protegerte a ti y a tu familia</p>
+        </div>
+        
+        <div class="content-grid">
+            <div class="main-content">
+                <section id="articulos" class="article">
+                    <h2><i class="fas fa-history"></i>Sismos históricos y lecciones aprendidas</h2>
+                    <img src="https://images.unsplash.com/photo-1615196250115-3ffa840ed705?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Simulación de un sismo">
+                    <p>Los terremotos son eventos naturales impredecibles que han causado devastación a lo largo de la historia. El estudio de sismos pasados nos permite entender mejor cómo prepararnos para futuros eventos.</p>
+                    
+                    <h3>Terremoto de México, 1985</h3>
+                    <p>El 19 de septiembre de 1985, un terremoto de magnitud 8.1 sacudió la Ciudad de México, causando miles de víctimas y daños materiales incalculables. Las lecciones aprendidas incluyen:</p>
+                    <ul>
+                        <li>La importancia de códigos de construcción sismo-resistentes</li>
+                        <li>La necesidad de sistemas de alerta temprana</li>
+                        <li>La valoración de simulacros regulares</li>
+                        <li>La organización comunitaria para respuesta ante emergencias</li>
+                    </ul>
+                    
+                    <h3>Terremoto de Chile, 2010</h3>
+                    <p>Con una magnitud de 8.8, este terremoto demostró la importancia de la preparación constante. Chile, ubicado en el "Cinturón de Fuego del Pacífico", ha desarrollado una cultura de prevención sísmica que incluye:</p>
+                    <ul>
+                        <li>Estrictas normas de construcción antisísmica</li>
+                        <li>Sistema de alerta temprana eficiente</li>
+                        <li>Educación continua en escuelas y comunidades</li>
+                    </ul>
+                </section>
+                
+                <section class="article">
+                    <h2><i class="fas fa-house-damage"></i>Medidas para mitigar los efectos de los sismos</h2>
+                    <img src="https://images.unsplash.com/photo-1584697964358-3e14ca57658b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1000&q=80" alt="Kit de emergencia para sismos">
+                    
+                    <h3>Antes del sismo (Prevención)</h3>
+                    <ul>
+                        <li>Elabora un plan familiar de protección civil</li>
+                        <li>Prepara un kit de emergencia con agua, alimentos no perecederos, botiquín, radio y linterna</li>
+                        <li>Identifica zonas de seguridad en tu hogar, trabajo y escuela</li>
+                        <li>Asegura estanterías, libreros y objetos pesados que puedan caer</li>
+                        <li>Participa en simulacros regularmente</li>
+                    </ul>
+                    
+                    <h3>Durante el sismo (Protección)</h3>
+                    <ul>
+                        <li>Conserva la calma y ubícate en las zonas de seguridad</li>
+                        <li>Aléjate de ventanas, espejos y objetos que puedan romperse</li>
+                        <li>Si estás en un lugar concurrido, evita correr y gritar</li>
+                        <li>Si vas en vehículo, detén el coche en un lugar seguro</li>
+                    </ul>
+                    
+                    <h3>Después del sismo (Recuperación)</h3>
+                    <ul>
+                        <li>Revisa si hay lesionados y aplica primeros auxilios</li>
+                        <li>Inspecciona daños en tu vivienda antes de reingresar</li>
+                        <li>Usa el teléfono solo para emergencias</li>
+                        <li>Mantente informado a través de fuentes oficiales</li>
+                        <li>Participa en la recuperación comunitaria organizada</li>
+                    </ul>
+                </section>
+                
+                <section id="evaluacion" class="quiz">
+                    <h3><i class="fas fa-question-circle"></i>Pon a prueba tus conocimientos</h3>
+                    <p>Responde las siguientes preguntas sobre la información que acabas de leer:</p>
+                    
+                    <div class="quiz-question">
+                        <p><strong>1. ¿Cuál fue una lección importante del terremoto de México en 1985?</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option">
+                                <input type="radio" name="q1" id="q1a"> 
+                                <label for="q1a">La importancia de los códigos de construcción sismo-resistentes</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q1" id="q1b"> 
+                                <label for="q1b">No es necesario prepararse para sismos</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q1" id="q1c"> 
+                                <label for="q1c">Los simulacros no son importantes</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p><strong>2. ¿Qué debe incluir un kit de emergencia?</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option">
+                                <input type="radio" name="q2" id="q2a"> 
+                                <label for="q2a">Agua, alimentos no perecederos, botiquín, radio y linterna</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q2" id="q2b"> 
+                                <label for="q2b">Solo documentos importantes</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q2" id="q2c"> 
+                                <label for="q2c">Objetos de valor como joyas y electrónicos</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="quiz-question">
+                        <p><strong>3. Durante un sismo, ¿qué deberías hacer?</strong></p>
+                        <div class="quiz-options">
+                            <div class="quiz-option">
+                                <input type="radio" name="q3" id="q3a"> 
+                                <label for="q3a">Correr hacia la salida inmediatamente</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q3" id="q3b"> 
+                                <label for="q3b">Ubicarte en las zonas de seguridad y conservar la calma</label>
+                            </div>
+                            <div class="quiz-option">
+                                <input type="radio" name="q3" id="q3c"> 
+                                <label for="q3c">Usar el ascensor para evacuar más rápido</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <button class="btn" onclick="checkAnswers()"><i class="fas fa-check"></i>Verificar respuestas</button>
+                </section>
+            </div>
+            
+            <div class="sidebar">
+                <div id="juegos" class="sidebar-widget game-container">
+                    <h3><i class="fas fa-puzzle-piece"></i>Juego de Memoria: Elementos de Seguridad</h3>
+                    <p>Encuentra las parejas de elementos importantes para la prevención sísmica</p>
+                    <div id="memory-game">
+                        <!-- Las tarjetas se generarán con JavaScript -->
+                    </div>
+                    <p id="game-result"></p>
+                    <button class="btn" onclick="resetGame()"><i class="fas fa-redo"></i>Reiniciar Juego</button>
+                </div>
+                
+                <div class="progress-container">
+                    <h3><i class="fas fa-chart-line"></i>Tu Progreso</h3>
+                    <div class="progress-bar">
+                        <div class="progress" id="progress-bar"></div>
+                    </div>
+                    <p id="progress-text">0% Completado</p>
+                </div>
+                
+                <div id="recursos" class="sidebar-widget">
+                    <h3><i class="fas fa-download"></i>Recursos Adicionales</h3>
+                    <ul>
+                        <li><a href="#"><i class="fas fa-file-pdf"></i>Guía de preparación para sismos</a></li>
+                        <li><a href="#"><i class="fas fa-video"></i>Video tutorial: Cómo hacer un plan familiar</a></li>
+                        <li><a href="#"><i class="fas fa-image"></i>Infografía: Zonas seguras en tu hogar</a></li>
+                        <li><a href="#"><i class="fas fa-address-book"></i>Directorio de instituciones de protección civil</a></li>
+                    </ul>
+                </div>
+                
+                <div class="sidebar-widget">
+                    <h3><i class="fas fa-lightbulb"></i>Datos Importantes</h3>
+                    <p>Los sismos no se pueden predecir, pero sus efectos sí se pueden mitigar con preparación adecuada.</p>
+                    <p>Más del 80% de los lesionados en sismos se deben a caída de objetos, no al colapso de estructuras.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    <footer>
+        <p>Plataforma Educativa sobre Prevención de Sismos © 2023</p>
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+        </div>
+        <p>Este contenido es con fines educativos. Para información oficial, consulta a las autoridades de protección civil de tu localidad.</p>
+    </footer>
+
+    <script>
+        // Juego de memoria
+        const cardValues = ['🚰', '🥫', '📻', '💊', '🔦', '🧯', '🚰', '🥫', '📻', '💊', '🔦', '🧯'];
+        let cards = [];
+        let flippedCards = [];
+        let matchedPairs = 0;
+        
+        function initializeGame() {
+            const gameContainer = document.getElementById('memory-game');
+            gameContainer.innerHTML = '';
+            cards = [];
+            flippedCards = [];
+            matchedPairs = 0;
+            
+            // Mezclar las cartas
+            const shuffledCards = [...cardValues].sort(() => Math.random() - 0.5);
+            
+            // Crear las cartas en el DOM
+            shuffledCards.forEach((value, index) => {
+                const card = document.createElement('div');
+                card.classList.add('memory-card');
+                card.dataset.value = value;
+                card.dataset.index = index;
+                card.textContent = '?';
+                card.addEventListener('click', () => flipCard(card));
+                gameContainer.appendChild(card);
+                cards.push(card);
+            });
+            
+            updateProgress();
+        }
+        
+        function flipCard(card) {
+            // Si la carta ya está volteada o ya fue emparejada, no hacer nada
+            if (card.classList.contains('flipped') || card.classList.contains('matched') || flippedCards.length >= 2) {
+                return;
+            }
+            
+            // Voltear la carta
+            card.classList.add('flipped');
+            card.textContent = card.dataset.value;
+            flippedCards.push(card);
+            
+            // Si tenemos dos cartas volteadas, verificar si son pareja
+            if (flippedCards.length === 2) {
+                setTimeout(checkMatch, 800);
+            }
+        }
+        
+        function checkMatch() {
+            const [card1, card2] = flippedCards;
+            
+            if (card1.dataset.value === card2.dataset.value) {
+                // Es una pareja
+                card1.classList.add('matched');
+                card2.classList.add('matched');
+                matchedPairs++;
+                
+                // Verificar si el juego está completo
+                if (matchedPairs === cardValues.length / 2) {
+                    document.getElementById('game-result').textContent = '¡Felicidades! Has completado el juego.';
+                    updateProgress(100);
+                } else {
+                    updateProgress((matchedPairs / (cardValues.length / 2)) * 100);
+                }
+            } else {
+                // No es una pareja, voltear de nuevo
+                card1.classList.remove('flipped');
+                card2.classList.remove('flipped');
+                card1.textContent = '?';
+                card2.textContent = '?';
+            }
+            
+            // Reiniciar las cartas volteadas
+            flippedCards = [];
+        }
+        
+        function resetGame() {
+            document.getElementById('game-result').textContent = '';
+            initializeGame();
+        }
+        
+        // Verificar respuestas del quiz
+        function checkAnswers() {
+            let correctAnswers = 0;
+            
+            // Verificar pregunta 1
+            if (document.getElementById('q1a').checked) {
+                correctAnswers++;
+            }
+            
+            // Verificar pregunta 2
+            if (document.getElementById('q2a').checked) {
+                correctAnswers++;
+            }
+            
+            // Verificar pregunta 3
+            if (document.getElementById('q3b').checked) {
+                correctAnswers++;
+            }
+            
+            alert(`Obtuviste ${correctAnswers} de 3 respuestas correctas.`);
+            
+            // Actualizar progreso basado en las respuestas correctas
+            const quizProgress = (correctAnswers / 3) * 100;
+            updateProgress(quizProgress, true);
+        }
+        
+        // Actualizar barra de progreso
+        function updateProgress(percent = 0, isQuiz = false) {
+            const progressBar = document.getElementById('progress-bar');
+            const progressText = document.getElementById('progress-text');
+            
+            if (isQuiz) {
+                // Si es del quiz, actualizar solo si es mayor al progreso actual
+                const currentWidth = parseFloat(progressBar.style.width || '0');
+                if (percent > currentWidth) {
+                    progressBar.style.width = percent + '%';
+                    progressText.textContent = Math.round(percent) + '% Completado';
+                }
+            } else {
+                progressBar.style.width = percent + '%';
+                progressText.textContent = Math.round(percent) + '% Completado';
+            }
+        }
+        
+        // Inicializar el juego cuando se cargue la página
+        window.onload = function() {
+            initializeGame();
+            
+            // Agregar efecto de carga inicial
+            setTimeout(() => {
+                updateProgress(25);
+            }, 1000);
+        };
+    </script>
+</body>
+</html>
